@@ -1,0 +1,19 @@
+package data;
+
+import java.util.List;
+
+import javax.persistence.PersistenceContext;
+
+@Transactional
+public class WalkDAOImpl implements WalkDAO {
+
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Override
+	public List<Walk> index(){
+	String query = "Select a from Quiz a";
+	return em.createQuery(query, Walk.class).getResultList();
+	}
+
+}

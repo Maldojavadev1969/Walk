@@ -1,0 +1,17 @@
+package data;
+
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
+public class WalkDAOImpl implements WalkDAO {
+
+//	@PersistenceContext
+//	private EntityManager em;
+	
+//	@Override
+//	public List<Walk> index(){
+//	String query = "Select w from Walk w";
+//	return em.createQuery(query, Walk.class).getResultList();
+//	}
+
+}

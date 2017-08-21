@@ -1,0 +1,66 @@
+package data;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import entities.Walk;
+
+@Transactional
+public class WalkDAOImpl implements WalkDAO {
+
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Override
+	public List<Walk> index(){
+	String query = "Select w from Walk w";
+	return em.createQuery(query, Walk.class).getResultList();
+	}
+	
+	public Walk show(int id){
+		  return em.find(Walk.class, id);
+		}
+	
+	@Override
+    public Walk create(Walk walk) {
+        em.persist(walk);
+        em.flush();
+        return em.find(Walk.class, walk.getId());
+    }
+	
+	@Override
+    public Walk update(int id, Walk walk) {
+        Walk managed = null;
+        try {
+        
+        managed=em.find(Walk.class, id);
+       managed.setDistance(walk.getDistance());
+       managed.setLocation(walk.getLocation());
+       managed.setNotes(walk.getNotes());
+       managed.setTime(walk.getTime());
+       
+        //em.persist(quiz);  //here I am not ADDing a quiz, just now making the entity now residing in the Persistence Context to be moved to the database 
+        em.flush();
+    
+        } catch (Exception e)  {
+            e.printStackTrace();
+        }
+        return managed;
+        
+    }
+	
+	@Override
+    public boolean destroy(int id) {
+        Walk deleteWalk = em.find(Walk.class, id);  
+        em.remove(deleteWalk);
+        if (deleteWalk==null) {
+            return false;
+        }    
+        return true;
+    }
+
+}

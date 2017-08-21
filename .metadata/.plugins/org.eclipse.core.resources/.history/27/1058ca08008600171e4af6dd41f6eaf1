@@ -1,0 +1,37 @@
+package controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import data.WalkDAO;
+import entities.Walk;
+
+@RestController
+public class WalkController {
+	
+	@RequestMapping(path = "quizzes/ping", method = RequestMethod.GET)
+	public String ping() {
+		return "pong";
+	}
+	
+//	@RequestMapping(path="walks", method=RequestMethod.GET)
+//	public List<Walk> index(){
+//		return dao.index();
+//	}
+//	
+//	@Autowired
+//	private WalkDAO dao;
+	
+	
+
+}

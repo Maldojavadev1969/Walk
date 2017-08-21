@@ -1,0 +1,45 @@
+package entities;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Walk {
+	
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)	
+private int id;
+
+private int distance;
+
+private int time;
+
+private String location;
+
+private String notes;
+
+private boolean walked;
+
+
+@Override
+public String toString() {
+	return "Walk [id=" + id + ", distance=" + distance + ", time=" + time + ", location=" + location + ", notes="
+			+ notes + ", walked=" + walked + "]";
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

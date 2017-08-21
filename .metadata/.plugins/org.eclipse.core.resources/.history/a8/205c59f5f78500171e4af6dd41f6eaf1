@@ -1,0 +1,11 @@
+package controllers;
+
+import data.WalkDAO;
+
+@RestController
+public class WalkController {
+	
+	@Autowired
+	private WalkDAO dao;
+
+}

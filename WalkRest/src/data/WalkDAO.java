@@ -1,0 +1,16 @@
+package data;
+
+import java.util.List;
+
+import entities.Walk;
+
+public interface WalkDAO {
+	
+	
+	public List<Walk> index();
+	public Walk show(int id);
+	public Walk create(Walk walk);
+	public Walk update(int id, Walk walk);
+	public boolean destroy(int id);
+
+}

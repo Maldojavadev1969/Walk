@@ -1,0 +1,18 @@
+package controllers;
+
+import java.util.List;
+
+import data.WalkDAO;
+
+@RestController
+public class WalkController {
+	
+	@Autowired
+	private WalkDAO dao;
+	
+	@RequestMapping(path="walks", method=RequestMethod.GET)
+	public List<Walk> index(){
+		return dao.index();
+	}
+
+}
