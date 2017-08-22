@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Sun Aug 20 19:22:17 MDT 2017
+#Mon Aug 21 17:24:54 MDT 2017
 org.eclipse.jst.j2ee.server\:/binary\:/Users/mmjavadev/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.2.RELEASE/562b3b775b6e8e7113b5d23b21946f939658bd19/spring-web-4.3.2.RELEASE.jar=WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
 org.eclipse.jst.j2ee.server\:JPAWalk=WEB-INF/lib/JPAWalk.jar
