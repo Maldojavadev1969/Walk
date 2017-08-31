@@ -14,12 +14,14 @@ public class WalkDAOImpl implements WalkDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+
 	
 	@Override
 	public List<Walk> index(){
 	String query = "Select w from Walk w";
 	return em.createQuery(query, Walk.class).getResultList();
 	}
+	
 	
 	public Walk show(int id){
 		  return em.find(Walk.class, id);
@@ -32,19 +34,32 @@ public class WalkDAOImpl implements WalkDAO {
         return em.find(Walk.class, walk.getId());
     }
 	
+	
+	
 	@Override
     public Walk update(int id, Walk walk) {
         Walk managed = null;
         try {
         
-        managed=em.find(Walk.class, id);
-       managed.setDistance(walk.getDistance());
-       managed.setLocation(walk.getLocation());
-       managed.setNotes(walk.getNotes());
-       managed.setTime(walk.getTime());
+        			managed=em.find(Walk.class, id);
+        			
+        			if(walk.getDistance() > 0) {
+            			managed.setDistance(walk.getDistance());
+        			}
+        			if(walk.getTime() > 0) {
+            			managed.setTime(walk.getTime());
+
+        			}
+        			if(walk.getLocation() != null) {
+            			managed.setLocation(walk.getLocation());
+
+        			}
+        			if(walk.getNotes() != null) {
+            			managed.setNotes(walk.getNotes());
+
+        			}
+        			
        
-        //em.persist(quiz);  //here I am not ADDing a quiz, just now making the entity now residing in the Persistence Context to be moved to the database 
-        em.flush();
     
         } catch (Exception e)  {
             e.printStackTrace();

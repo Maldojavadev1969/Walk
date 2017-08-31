@@ -1,0 +1,37 @@
+<div ng-repeat="walk in vm.walks" >
+		<h1 ng-hide="vm.hideWalk">id: {{walk.id}}</h1>
+        <h1 ng-hide="vm.hideWalk">walk distance: {{walk.distance}}</h1>
+        <h1 ng-hide="vm.hideWalk">walk time: {{walk.time}}</h1>
+        <h1 ng-hide="vm.hideWalk">walk location: {{walk.location}}</h1>
+        <h1 ng-hide="vm.hideWalk">walk notes: {{walk.notes}}</h1>
+        <h1 ng-hide="vm.hideWalk">did you walk: : {{walk.walked}}</h1>
+        <h1 ng-hide="vm.hideWalk"><button ng-click="vm.deleteWalk1(walk.id)">Delete</button></h1>
+         <h1 ng-hide="vm.hideWalk"><button ng-click="vm.hidesWalks()">Update</button></h1>
+        <hr>
+        
+       
+ 
+ <form ng-show="vm.hideWalk">
+	        <input type="text" placeholder="walk distance: {{walk.distance}}"  ng-model="updateWalk.distance" /><br />
+			<input type="text" placeholder="walk time: {{walk.time}}"  ng-model="updateWalk.time" /><br />
+			<input type="text" placeholder="walk location: {{walk.location}}"  ng-model="updateWalk.location" /><br />
+		    <input type="text" placeholder="did you walk: {{walk.walked}}"  ng-model="updateWalk.walked" /><br />
+		    <input type="text" placeholder="walk notes:  {{walk.notes}}"  ng-model="updateWalk.notes" /><br />	
+			<input type="submit"  value="Add Item" ng-click="vm.updateWalk(walk.id, updateWalk); updateWalk = {};" />
+         	<h1><button ng-click="vm.showsWalks()">Go Back</button></h1>		
+  		</form>
+</div>
+
+ <form>
+			<input type="text" placeholder="distance walked"  ng-model="walk1.distance" /><br />
+	        <input type="text" placeholder="time walked"  ng-model="walk1.time" /><br />
+			<input type="text" placeholder="location"  ng-model="walk1.location" /><br />
+			<input type="text" placeholder="notes"  ng-model="walk1.notes" /><br />
+		    <input type="text" placeholder="walked?"  ng-model="walk1.walked" /><br />	
+			<input type="submit"  value="Add Item" ng-click="vm.createWalk1(walk1); walk1 = {};" />		
+  </form>
+  
+  <p>Average Walk Distance: {{vm.getAvgDist}} miles</p>
+  
+  
+  
